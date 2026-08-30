@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  school-portal:
+    image: ${DOCKER_HUB_USERNAME}/school-portal:${IMAGE_TAG}
+    container_name: school_portal_app
+    ports:
+      - "80:80"
+    restart: always
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost/"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
