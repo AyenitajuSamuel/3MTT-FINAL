@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPortal - Your Gateway to Academic Excellence</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar elevated">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo-section">
+                    <span class="material-icons logo-icon">school</span>
+                    <span class="logo-text">EduPortal</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#academics" class="nav-link">Academics</a>
+                    <a href="#community" class="nav-link">Community</a>
+                    <a href="#announcements" class="nav-link">News</a>
+                </div>
+                <button class="btn-primary" id="portalAccessBtn">
+                    <span>Access Portal</span>
+                    <span class="material-icons">arrow_forward</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <span class="material-icons">menu</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-content">
+            <button class="drawer-close" id="drawerClose">
+                <span class="material-icons">close</span>
+            </button>
+            <a href="#home" class="drawer-link">Home</a>
+            <a href="#features" class="drawer-link">Features</a>
+            <a href="#academics" class="drawer-link">Academics</a>
+            <a href="#community" class="drawer-link">Community</a>
+            <a href="#announcements" class="drawer-link">News</a>
+            <button class="btn-primary drawer-cta">Access Portal</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Your Journey to
+                        <span class="accent-text">Academic Excellence</span>
+                        Starts Here
+                    </h1>
+                    <p class="hero-description">
+                        A unified digital environment connecting students, parents, teachers, and administrators.
+                        Experience seamless access to learning resources, real-time progress tracking, and a vibrant school community.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn-large btn-primary">
+                            <span>Get Started</span>
+                            <span class="material-icons">arrow_forward</span>
+                        </button>
+                        <button class="btn-large btn-secondary">
+                            <span class="material-icons">play_circle_outline</span>
+                            <span>Watch Demo</span>
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">5,000+</span>
+                            <span class="stat-label">Active Students</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">250+</span>
+                            <span class="stat-label">Faculty Members</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">98%</span>
+                            <span class="stat-label">Satisfaction Rate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-card card-1">
+                        <span class="material-icons card-icon">assignment_turned_in</span>
+                        <span class="card-text">Assignment Submitted</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <span class="material-icons card-icon">grade</span>
+                        <span class="card-text">New Grade Available</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <span class="material-icons card-icon">event</span>
+                        <span class="card-text">Upcoming Event</span>
+                    </div>
+                    <div class="hero-illustration">
+                        <div class="illustration-bg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access Section -->
+    <section class="quick-access-section">
+        <div class="container">
+            <div class="quick-access-grid">
+                <div class="quick-card elevated-hover" data-color="blue">
+                    <span class="material-icons quick-icon">person</span>
+                    <h3>Students</h3>
+                    <p>Access courses, assignments, and grades</p>
+                </div>
+                <div class="quick-card elevated-hover" data-color="purple">
+                    <span class="material-icons quick-icon">family_restroom</span>
+                    <h3>Parents</h3>
+                    <p>Monitor progress and stay informed</p>
+                </div>
+                <div class="quick-card elevated-hover" data-color="green">
+                    <span class="material-icons quick-icon">school</span>
+                    <h3>Teachers</h3>
+                    <p>Manage classes and track student success</p>
+                </div>
+                <div class="quick-card elevated-hover" data-color="orange">
+                    <span class="material-icons quick-icon">admin_panel_settings</span>
+                    <h3>Administration</h3>
+                    <p>Oversee operations and analytics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Platform Capabilities</span>
+                <h2 class="section-title">Everything You Need in One Place</h2>
+                <p class="section-description">
+                    Our integrated platform brings together all essential school functions with intuitive design and powerful features.
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card elevated">
+                    <div class="feature-icon-wrapper blue">
+                        <span class="material-icons feature-icon">dashboard</span>
+                    </div>
+                    <h3 class="feature-title">Personalized Dashboard</h3>
+                    <p class="feature-description">
+                        Customizable interface showing relevant information at a glance. Track assignments, grades, and upcoming events tailored to your role.
+                    </p>
+                    <ul class="feature-list">
+                        <li><span class="material-icons">check_circle</span> Real-time updates</li>
+                        <li><span class="material-icons">check_circle</span> Custom widgets</li>
+                        <li><span class="material-icons">check_circle</span> Quick actions</li>
+                    </ul>
+                </div>
+                <div class="feature-card elevated">
+                    <div class="feature-icon-wrapper purple">
+                        <span class="material-icons feature-icon">assessment</span>
+                    </div>
+                    <h3 class="feature-title">Academic Progress Tracking</h3>
+                    <p class="feature-description">
+                        Comprehensive view of academic performance with detailed analytics, grade trends, and insightful progress reports.
+                    </p>
+                    <ul class="feature-list">
+                        <li><span class="material-icons">check_circle</span> Visual grade reports</li>
+                        <li><span class="material-icons">check_circle</span> Performance analytics</li>
+                        <li><span class="material-icons">check_circle</span> Historical data</li>
+                    </ul>
+                </div>
+                <div class="feature-card elevated">
+                    <div class="feature-icon-wrapper green">
+                        <span class="material-icons feature-icon">schedule</span>
+                    </div>
+                    <h3 class="feature-title">Smart Scheduling</h3>
+                    <p class="feature-description">
+                        Intelligent timetable management with automatic conflict detection, reminders, and seamless calendar integration.
+                    </p>
+                    <ul class="feature-list">
+                        <li><span class="material-icons">check_circle</span> Automated reminders</li>
+                        <li><span class="material-icons">check_circle</span> Calendar sync</li>
+                        <li><span class="material-icons">check_circle</span> Class notifications</li>
+                    </ul>
+                </div>
+                <div class="feature-card elevated">
+                    <div class="feature-icon-wrapper orange">
+                        <span class="material-icons feature-icon">cloud_upload</span>
+                    </div>
+                    <h3 class="feature-title">Assignment Management</h3>
+                    <p class="feature-description">
+                        Streamlined submission process with drag-and-drop uploads, version control, and instant feedback from instructors.
+                    </p>
+                    <ul class="feature-list">
+                        <li><span class="material-icons">check_circle</span> Easy submissions</li>
+                        <li><span class="material-icons">check_circle</span> Progress tracking</li>
+                        <li><span class="material-icons">check_circle</span> Instant feedback</li>
+                    </ul>
+                </div>
+                <div class="feature-card elevated">
+                    <div class="feature-icon-wrapper teal">
+                        <span class="material-icons feature-icon">forum</span>
+                    </div>
+                    <h3 class="feature-title">Communication Hub</h3>
+                    <p class="feature-description">
+                        Integrated messaging system connecting students, parents, and teachers with announcements, discussions, and direct messaging.
+                    </p>
+                    <ul class="feature-list">
+                        <li><span class="material-icons">check_circle</span> Direct messaging</li>
+                        <li><span class="material-icons">check_circle</span> Class discussions</li>
+                        <li><span class="material-icons">check_circle</span> Push notifications</li>
+                    </ul>
+                </div>
+                <div class="feature-card elevated">
+                    <div class="feature-icon-wrapper red">
+                        <span class="material-icons feature-icon">library_books</span>
+                    </div>
+                    <h3 class="feature-title">Digital Library</h3>
+                    <p class="feature-description">
+                        Access comprehensive learning resources including e-books, journals, multimedia content, and curated study materials.
+                    </p>
+                    <ul class="feature-list">
+                        <li><span class="material-icons">check_circle</span> E-book collection</li>
+                        <li><span class="material-icons">check_circle</span> Research tools</li>
+                        <li><span class="material-icons">check_circle</span> Study materials</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics Section -->
+    <section id="academics" class="academics-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Academic Excellence</span>
+                <h2 class="section-title">Comprehensive Learning Environment</h2>
+            </div>
+            <div class="academics-content">
+                <div class="academics-visual">
+                    <div class="grade-card elevated">
+                        <div class="grade-header">
+                            <h4>Current Semester</h4>
+                            <span class="semester-badge">Spring 2026</span>
+                        </div>
+                        <div class="grade-overview">
+                            <div class="gpa-display">
+                                <span class="gpa-value">3.85</span>
+                                <span class="gpa-label">GPA</span>
+                            </div>
+                            <div class="progress-ring">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="40" class="progress-ring-bg"></circle>
+                                    <circle cx="50" cy="50" r="40" class="progress-ring-fill" style="stroke-dashoffset: 31.4;"></circle>
+                                </svg>
+                                <span class="progress-text">87%</span>
+                            </div>
+                        </div>
+                        <div class="subject-grades">
+                            <div class="subject-item">
+                                <span class="subject-name">Mathematics</span>
+                                <span class="subject-grade grade-a">A</span>
+                            </div>
+                            <div class="subject-item">
+                                <span class="subject-name">Physics</span>
+                                <span class="subject-grade grade-b">B+</span>
+                            </div>
+                            <div class="subject-item">
+                                <span class="subject-name">Literature</span>
+                                <span class="subject-grade grade-a">A-</span>
+                            </div>
+                            <div class="subject-item">
+                                <span class="subject-name">Chemistry</span>
+                                <span class="subject-grade grade-a">A</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="academics-info">
+                    <div class="info-card elevated">
+                        <span class="material-icons info-icon">trending_up</span>
+                        <h3>Track Your Progress</h3>
+                        <p>Real-time grade updates, detailed performance analytics, and personalized insights help you stay on top of your academic journey.</p>
+                    </div>
+                    <div class="info-card elevated">
+                        <span class="material-icons info-icon">school</span>
+                        <h3>Diverse Curriculum</h3>
+                        <p>Access a wide range of subjects and courses designed to challenge and inspire, with resources tailored to different learning styles.</p>
+                    </div>
+                    <div class="info-card elevated">
+                        <span class="material-icons info-icon">emoji_events</span>
+                        <h3>Achievement Recognition</h3>
+                        <p>Celebrate milestones with digital badges, certificates, and a comprehensive record of academic accomplishments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Announcements Section -->
+    <section id="announcements" class="announcements-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Stay Informed</span>
+                <h2 class="section-title">Latest Announcements & News</h2>
+            </div>
+            <div class="announcements-grid">
+                <div class="announcement-card elevated priority-high">
+                    <div class="announcement-header">
+                        <span class="material-icons announcement-icon">campaign</span>
+                        <span class="priority-badge">Important</span>
+                    </div>
+                    <h3 class="announcement-title">Semester Exam Schedule Released</h3>
+                    <p class="announcement-content">
+                        The final examination timetable for Spring 2026 is now available in your portal. Review your schedule and prepare accordingly.
+                    </p>
+                    <div class="announcement-footer">
+                        <span class="announcement-date">
+                            <span class="material-icons">schedule</span>
+                            2 hours ago
+                        </span>
+                        <button class="btn-text">View Details</button>
+                    </div>
+                </div>
+                <div class="announcement-card elevated priority-medium">
+                    <div class="announcement-header">
+                        <span class="material-icons announcement-icon">event</span>
+                        <span class="priority-badge medium">Event</span>
+                    </div>
+                    <h3 class="announcement-title">Science Fair Registration Open</h3>
+                    <p class="announcement-content">
+                        Join us for the Annual Science Fair on September 15th. Register your projects through the portal by September 1st.
+                    </p>
+                    <div class="announcement-footer">
+                        <span class="announcement-date">
+                            <span class="material-icons">schedule</span>
+                            1 day ago
+                        </span>
+                        <button class="btn-text">Register Now</button>
+                    </div>
+                </div>
+                <div class="announcement-card elevated priority-low">
+                    <div class="announcement-header">
+                        <span class="material-icons announcement-icon">library_books</span>
+                        <span class="priority-badge low">Update</span>
+                    </div>
+                    <h3 class="announcement-title">New Library Resources Available</h3>
+                    <p class="announcement-content">
+                        Explore our expanded digital library with over 500 new e-books and research journals across various subjects.
+                    </p>
+                    <div class="announcement-footer">
+                        <span class="announcement-date">
+                            <span class="material-icons">schedule</span>
+                            3 days ago
+                        </span>
+                        <button class="btn-text">Explore Library</button>
+                    </div>
+                </div>
+            </div>
+            <div class="announcements-actions">
+                <button class="btn-secondary">
+                    <span>View All Announcements</span>
+                    <span class="material-icons">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="community-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Vibrant Community</span>
+                <h2 class="section-title">Connect, Collaborate, Succeed Together</h2>
+            </div>
+            <div class="community-content">
+                <div class="community-highlights">
+                    <div class="highlight-card elevated">
+                        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&h=500&fit=crop" alt="Student Activities" class="highlight-image">
+                        <div class="highlight-content">
+                            <span class="highlight-badge">Student Life</span>
+                            <h3>Extracurricular Excellence</h3>
+                            <p>Join over 50 clubs and organizations spanning arts, sports, technology, and community service.</p>
+                        </div>
+                    </div>
+                    <div class="highlight-card elevated">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=500&fit=crop" alt="Sports Activities" class="highlight-image">
+                        <div class="highlight-content">
+                            <span class="highlight-badge">Athletics</span>
+                            <h3>Championship Teams</h3>
+                            <p>Compete at the highest level with state-of-the-art facilities and expert coaching staff.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="community-stats-grid">
+                    <div class="stat-card elevated">
+                        <div class="stat-icon-wrapper blue">
+                            <span class="material-icons">groups</span>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-text">Active Clubs</span>
+                        </div>
+                    </div>
+                    <div class="stat-card elevated">
+                        <div class="stat-icon-wrapper purple">
+                            <span class="material-icons">emoji_events</span>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">120</span>
+                            <span class="stat-text">Awards This Year</span>
+                        </div>
+                    </div>
+                    <div class="stat-card elevated">
+                        <div class="stat-icon-wrapper green">
+                            <span class="material-icons">volunteer_activism</span>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">3,000</span>
+                            <span class="stat-text">Volunteer Hours</span>
+                        </div>
+                    </div>
+                    <div class="stat-card elevated">
+                        <div class="stat-icon-wrapper orange">
+                            <span class="material-icons">celebration</span>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">80+</span>
+                            <span class="stat-text">Events Annually</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Community Voices</span>
+                <h2 class="section-title">What Our Community Says</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card elevated">
+                    <div class="testimonial-rating">
+                        <span class="material-icons">star</span>
+                        <span class="material-icons">star</span>
+                        <span class="material-icons">star</span>
+                        <span class="material-icons">star</span>
+                        <span class="material-icons">star</span>
+                    </div>
+                    <p class="testimonial-text">
+                        "The portal has transformed how I stay connected with my child's education. I can monitor progress, communicate with teachers, and stay informed—all in one place."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <span class="material-icons">person</span>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Sarah Johnson</span>
+                            <span class="author-role">Parent</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card elevated">
+                    <div class="testimonial-rating">
+                        <span class="material-icons">star</span>
+                        <span class="material-icons">star</span>
+                        <span class="material-icons">star</span>
+                        <span class="material-icons">star</span>
+                        <span class="material-icons">star</span>
+                    </div>
+                    <p class="testimonial-text">
+                        "As a student, I love how easy it is to track assignments, check grades, and access learning materials. The interface is intuitive and the mobile app keeps me updated on the go."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <span class="material-icons">person</span>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Michael Chen</span>
+                            <span class="author-role">Student, Grade 11</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card elevated">
+                    <div class="testimonial-rating">
+                        <span class="material-icons">star</span>
+                        <span class="material-icons">star</span>
+                        <span class="material-icons">star</span>
+                        <span class="material-icons">star</span>
+                        <span class="material-icons">star</span>
+                    </div>
+                    <p class="testimonial-text">
+                        "The platform streamlines classroom management and makes grading efficient. I can focus more on teaching and less on administrative tasks."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <span class="material-icons">person</span>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Dr. Emily Rodriguez</span>
+                            <span class="author-role">Mathematics Teacher</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content elevated">
+                <div class="cta-text">
+                    <h2 class="cta-title">Ready to Begin Your Journey?</h2>
+                    <p class="cta-description">
+                        Join thousands of students, parents, and educators experiencing the future of education. Access your personalized portal today.
+                    </p>
+                </div>
+                <div class="cta-actions">
+                    <button class="btn-large btn-primary">
+                        <span>Access Portal</span>
+                        <span class="material-icons">login</span>
+                    </button>
+                    <button class="btn-large btn-secondary">
+                        <span>Contact Support</span>
+                        <span class="material-icons">support_agent</span>
+                    </button>
+                </div>
+                <div class="cta-info">
+                    <div class="info-item">
+                        <span class="material-icons">verified_user</span>
+                        <span>Secure & Private</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="material-icons">devices</span>
+                        <span>Multi-Platform Access</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="material-icons">support</span>
+                        <span>24/7 Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="material-icons">school</span>
+                        <span>EduPortal</span>
+                    </div>
+                    <p class="footer-description">
+                        Empowering education through innovative technology and seamless connectivity.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><span class="material-icons">facebook</span></a>
+                        <a href="#" class="social-link"><span class="material-icons">public</span></a>
+                        <a href="#" class="social-link"><span class="material-icons">email</span></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#academics">Academics</a></li>
+                        <li><a href="#community">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">User Guide</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">System Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-links">
+                        <li><span class="material-icons">email</span> support@eduportal.edu</li>
+                        <li><span class="material-icons">phone</span> (555) 123-4567</li>
+                        <li><span class="material-icons">location_on</span> 123 Education Ave</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EduPortal. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
