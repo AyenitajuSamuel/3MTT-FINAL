@@ -1,5 +1,7 @@
 # EduPortal - Modern School Portal Landing Page
 
+> 📚 **Documentation Navigation:** [README](README.md) • [Architecture & Deployment](ARCHITECTURE.md)
+
 A comprehensive, single-page school portal experience built with Material Design principles. This landing page creates an emotional journey from confidence and orientation through discovery, engagement, and readiness to take action.
 
 ## 🎨 Design Philosophy

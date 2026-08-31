@@ -1,0 +1,66 @@
+name: School Portal CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  # Stage 1: Validate HTML / CSS
+  test-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Validate HTML
+        uses: Cyb3r-W0lf/html-validator-action@v1.0.0
+        with:
+          html_files: '*.html'
+
+  # Stage 2: Build & Push Docker Image
+  build-and-push:
+    needs: test-and-lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/school-portal:latest
+            ${{ secrets.DOCKER_USERNAME }}/school-portal:${{ github.sha }}
+
+  # Stage 3: SSH Deploy to Server
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Server via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            export DOCKER_HUB_USERNAME="${{ secrets.DOCKER_USERNAME }}"
+            export IMAGE_TAG="${{ github.sha }}"
+
+            # Pull new image and restart application
+            docker pull $DOCKER_HUB_USERNAME/school-portal:$IMAGE_TAG
+            docker compose -f /path/to/school-portal/docker-compose.yml up -d school-portal
+
+            # Record current active deployment tag for instant rollback
+            echo "$IMAGE_TAG" > /path/to/school-portal/LAST_SUCCESSFUL_SHA

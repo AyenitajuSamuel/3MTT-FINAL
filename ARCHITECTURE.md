@@ -1,11 +1,10 @@
- ---
+# School Portal CI/CD Architecture & Deployment Manual
 
-  School Portal CI/CD Architecture & Deployment Manual
+> 📚 **Documentation Navigation:** [README](README.md) • [Architecture & Deployment](ARCHITECTURE.md)
 
-  This document provides a comprehensive technical overview of the School Portal deployment pipeline, container
-  architecture, automated release steps, emergency rollback procedures, and health monitoring stack.
+This document provides a comprehensive technical overview of the School Portal deployment pipeline, container architecture, automated release steps, emergency rollback procedures, and health monitoring stack.
 
-  ---
+---
 
   1. Architecture Overview
 
