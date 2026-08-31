@@ -10,24 +10,73 @@ on:
 
 jobs:
   rollback:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
-      - name: Revert Server Container Version
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            export DOCKER_HUB_USERNAME="${{ secrets.DOCKER_USERNAME }}"
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-            TARGET_SHA="${{ github.event.inputs.target_sha }}"
-            if [ -z "$TARGET_SHA" ]; then
-              TARGET_SHA=$(cat /path/to/school-portal/LAST_SUCCESSFUL_SHA)
+      - name: Revert Local Container Version
+        run: |
+          export DOCKER_HUB_USERNAME="${{ secrets.DOCKER_USERNAME }}"
+
+          # Get absolute path to project directory
+          PROJECT_DIR="${GITHUB_WORKSPACE}"
+          SHA_FILE="$PROJECT_DIR/LAST_SUCCESSFUL_SHA"
+
+          # Determine target SHA
+          TARGET_SHA="${{ github.event.inputs.target_sha }}"
+
+          if [ -z "$TARGET_SHA" ]; then
+            # Try to read from saved file
+            if [ -f "$SHA_FILE" ]; then
+              TARGET_SHA=$(cat "$SHA_FILE")
+              echo "📋 Using last successful deployment: $TARGET_SHA"
+            else
+              echo "❌ Error: No rollback target found."
+              echo "   - LAST_SUCCESSFUL_SHA file not found at: $SHA_FILE"
+              echo "   - Please specify a commit SHA manually"
+              exit 1
             fi
+          else
+            echo "📋 Rolling back to specified commit: $TARGET_SHA"
+          fi
 
-            echo "Rolling back deployment to tag: $TARGET_SHA"
-            export IMAGE_TAG="$TARGET_SHA"
+          # Validate TARGET_SHA is not empty
+          if [ -z "$TARGET_SHA" ]; then
+            echo "❌ Error: TARGET_SHA is empty"
+            exit 1
+          fi
 
-            docker pull $DOCKER_HUB_USERNAME/school-portal:$IMAGE_TAG
-            docker compose -f /path/to/school-portal/docker-compose.yml up -d school-portal
+          echo "🔄 Rolling back to: $TARGET_SHA"
+          export IMAGE_TAG="$TARGET_SHA"
+
+          # Pull the rollback image
+          echo "📦 Pulling image: $DOCKER_HUB_USERNAME/school-portal:$IMAGE_TAG"
+          if ! docker pull $DOCKER_HUB_USERNAME/school-portal:$IMAGE_TAG; then
+            echo "❌ Error: Failed to pull image. Image may not exist in Docker Hub."
+            exit 1
+          fi
+
+          # Navigate to project directory and restart with rollback version
+          cd "$PROJECT_DIR"
+          docker compose up -d school-portal
+
+          # Verify container is running
+          sleep 3
+          if docker ps | grep -q school_portal_app; then
+            echo "✅ Rollback successful! Running version: $TARGET_SHA"
+          else
+            echo "❌ Rollback failed - container not running"
+            docker ps -a | grep school_portal_app || echo "Container not found"
+            exit 1
+          fi
+
+      - name: Rollback Summary
+        if: success()
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "🔄 Rollback Completed Successfully"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Target: ${{ github.event.inputs.target_sha || 'Last successful deployment' }}"
+          echo "Time: $(date)"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
